@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-WicketLiveApplication<wicket-live>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.wicketlive.WicketLiveApplication",
+            "projectName": "wicket-live",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

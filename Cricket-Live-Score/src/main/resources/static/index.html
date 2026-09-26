@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101720">
+  <title>Wicket Live | Match centre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Wicket Live home">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>WICKET<span class="brand-light">LIVE</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="live">Match centre</button>
+        <button class="nav-link" data-view="fixtures">Fixtures</button>
+      </nav>
+      <div class="topbar-right">
+        <span class="season-tag">IPL <b>2026</b></span>
+        <span class="connection" id="connection"><i></i><span>Connecting</span></span>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-heading">
+        <div>
+          <p class="overline"><span class="overline-line"></span> THE LEAGUE, LIVE</p>
+          <h1 id="page-title">Match <em>centre.</em></h1>
+          <p class="page-subtitle" id="page-subtitle">Every ball. Every moment. Right now.</p>
+        </div>
+        <div class="date-stamp"><span class="date-dot"></span><span>SEASON 19 <b>·</b> WEEK 7</span></div>
+      </section>
+
+      <section class="live-layout" id="live-view">
+        <div class="main-column">
+          <article class="score-panel" id="score-panel" aria-live="polite">
+            <div class="score-panel-top">
+              <div class="match-meta"><span class="live-pill"><i></i> LIVE</span><span id="match-meta">IPL · MATCH 48</span></div>
+              <span class="ground-name" id="ground-name">Harbour Oval, Mumbai</span>
+            </div>
+            <div class="scoreboard">
+              <div class="team-score team-home">
+                <div class="team-crest crest-gold" id="home-crest">MUM</div>
+                <div class="team-label"><span id="home-name">Mumbai Meteors</span><b id="home-innings-label">INNINGS 1</b></div>
+                <div class="team-total"><strong id="home-score">186</strong><span id="home-overs">/5 (19.2)</span></div>
+              </div>
+              <div class="versus"><span>VS</span><i></i></div>
+              <div class="team-score team-away">
+                <div class="team-crest crest-coral" id="away-crest">CHE</div>
+                <div class="team-label"><span id="away-name">Chennai Chargers</span><b id="away-innings-label">INNINGS 2</b></div>
+                <div class="team-total"><strong id="away-score">178</strong><span id="away-overs">/5 (19.2)</span></div>
+              </div>
+            </div>
+            <div class="score-panel-bottom">
+              <div class="chase-note"><span class="chase-icon">↗</span><span id="match-equation">9 runs needed from 4 balls</span></div>
+              <div class="ground-small" id="ground-small">Mumbai · Toss: Chennai, elected to field</div>
+            </div>
+          </article>
+
+          <div class="stat-strip" id="stat-strip">
+            <div class="stat-cell"><span>CRR</span><strong id="current-rate">9.21</strong></div>
+            <div class="stat-cell"><span>REQ. RATE</span><strong id="required-rate">13.50</strong></div>
+            <div class="stat-cell"><span>PARTNERSHIP</span><strong id="partnership">31 <small>(14)</small></strong></div>
+            <div class="stat-cell"><span>LAST 6</span><div class="last-six" id="last-six"></div></div>
+          </div>
+
+          <div class="section-heading">
+            <div><p class="overline">AT THE CREASE</p><h2>Scorecard</h2></div>
+            <button class="text-action" id="refresh-button" title="Refresh scorecard"><span aria-hidden="true">↻</span> Refresh</button>
+          </div>
+          <section class="data-panel scorecard-panel">
+            <div class="panel-heading"><div><span class="innings-mark">01</span><span id="batting-team-heading">Chennai Chargers</span></div><span class="table-note">BATTING</span></div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>BATTER</th><th>R</th><th>B</th><th>4s</th><th>6s</th><th>SR</th><th>STATUS</th></tr></thead>
+                <tbody id="batting-body"></tbody>
+              </table>
+            </div>
+            <div class="panel-divider"></div>
+            <div class="panel-heading bowling-heading"><div><span class="innings-mark innings-alt">02</span><span>Bowling figures</span></div><span class="table-note">BOWLING</span></div>
+            <div class="table-scroll">
+              <table>
+                <thead><tr><th>BOWLER</th><th>W</th><th>ECON</th><th>STATUS</th></tr></thead>
+                <tbody id="bowling-body"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="feed-panel">
+            <div class="feed-header"><div><p class="overline">BALL BY BALL</p><h2>Live commentary</h2></div><span class="feed-live"><i></i> LIVE</span></div>
+            <div class="latest-call" id="latest-call"><span class="call-number">19.2</span><p>Loading the latest delivery…</p></div>
+            <div class="commentary-list" id="commentary-list"></div>
+            <button class="feed-more" id="commentary-more">VIEW FULL COMMENTARY <span>↗</span></button>
+          </section>
+
+          <section class="update-panel">
+            <div class="update-head"><div><p class="overline">SCORER'S DESK</p><h3>Record a delivery</h3></div><span class="desk-icon">✳</span></div>
+            <p class="update-caption">Add the next ball to the live feed.</p>
+            <div class="outcome-picker" role="group" aria-label="Ball outcome">
+              <button data-outcome="0">·</button><button data-outcome="1">1</button><button data-outcome="2">2</button><button data-outcome="3">3</button><button data-outcome="4">4</button><button data-outcome="6">6</button><button data-outcome="W">W</button><button data-outcome="Wd">Wd</button><button data-outcome="Nb">Nb</button>
+            </div>
+            <button class="record-button" id="record-button"><span>Record ball</span><span class="button-arrow">→</span></button>
+            <button class="end-innings-button" id="end-innings-button">End innings</button>
+            <p class="desk-feedback" id="desk-feedback" role="status"></p>
+          </section>
+        </aside>
+      </section>
+
+      <section class="fixtures-view hidden" id="fixtures-view">
+        <div class="fixtures-toolbar"><div><p class="overline">SEASON 19 · WEEK 7</p><h2>Fixtures & results</h2></div><span class="fixture-count" id="fixture-count">03 MATCHES</span></div>
+        <div class="fixture-list" id="fixture-list"></div>
+      </section>
+    </main>
+
+    <footer class="page-footer"><span>WICKET LIVE <b>·</b> IPL 2026 SIMULATION</span><span>LIVE SCORES <i></i></span></footer>
+  </div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
